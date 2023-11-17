@@ -10,6 +10,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public List<RoletaItem> roletaItems = new List<RoletaItem>();   //cada item da roleta, se tiver 10 premios basta add 10 itens e seus angulos e premios aqui.
+
+    [Tooltip(" -1 = aleatorio, se nao ele sempre escolhe o premio que estiver aqui, de acordo com os adicionados acima.")]
+    public int premioEscolhidoIndex = -1;                           //Se for -1 eh aleatorio, se nao ele pega como escolhido o index que estiver aqui.
+
     public CanvasGroup roletaCanvasGroup, finalCanvasGroup;
     public TextMeshProUGUI premioText;
     public Image premioImg;
@@ -29,6 +33,9 @@ public class GameManager : MonoBehaviour
 
         //Escolhe um numero aleatorio de 0 ate o numero de premios que ira servir de index para cada cor e premio da roleta.
         int resultadoRoletaIndex = UnityEngine.Random.Range(0, roletaItems.Count);
+
+        if (premioEscolhidoIndex > -1 && premioEscolhidoIndex < roletaItems.Count)
+            resultadoRoletaIndex = premioEscolhidoIndex;
 
         //seta o premio sorteado pela index dos premios.
         _roletaItemSorteado = roletaItems[resultadoRoletaIndex];

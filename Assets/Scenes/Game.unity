@@ -566,6 +566,7 @@ MonoBehaviour:
   - cor: {r: 0.3803922, g: 1, b: 0, a: 1}
     angulo: 270
     mensagemPremio: "Quase! <br>Jogue novamente para se tornar um milion\xE1rio!"
+  premioEscolhidoIndex: -1
   roletaCanvasGroup: {fileID: 1846595515}
   finalCanvasGroup: {fileID: 1826085664}
   premioText: {fileID: 612404161}
