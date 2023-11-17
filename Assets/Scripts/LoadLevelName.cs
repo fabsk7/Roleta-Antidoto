@@ -7,6 +7,6 @@ public class LoadLevelName : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
     }
 }
