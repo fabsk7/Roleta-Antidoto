@@ -10,6 +10,13 @@ public class Roleta : MonoBehaviour
     [Range (0.3f, 0.99f)]
     public float suavidadeDoGiro = 0.97f;       //Controla a suavidade em que vai parando de girar.
 
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     /// <summary>
     /// funcao responsavel por gira a roleta e definir o angulo que ela para e quantas voltas ela da ate parar.
     /// </summary>
@@ -18,6 +25,8 @@ public class Roleta : MonoBehaviour
     public void GirarParaAngulo(float targetAngle, System.Action onFinished)
     {
         StartCoroutine(IGirarParaAngulo(targetAngle, onFinished));
+        //toca o som da roleta girando.
+        _audioSource?.Play();
     }
 
     private IEnumerator IGirarParaAngulo(float angle, System.Action onFinished)
